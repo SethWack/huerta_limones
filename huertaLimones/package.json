@@ -21,6 +21,8 @@
         "tailwindcss": "^2.2.2"
     },
     "dependencies": {
+        "@mdi/font": "^6.3.95",
+        "material-icons": "^1.10.0",
         "materialize-css": "^1.0.0-rc.2"
     }
 }

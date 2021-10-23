@@ -28,10 +28,10 @@
             <div class="col s12">
                 <div class="fixed-action-btn toolbar">
                     <a class="btn-floating btn-large green right">
-                        <i class="material-icons large">menu</i>
+                        <i class="material-icons large">message</i>
                     </a>
                     <ul>
-                        <li><a class="green darken-1"><i class="material-icons">twitter</i></a></li>
+                        <li><a class="green darken-1"><i class="material-icons">bird</i></a></li>
                         <li><a class="green darken-2"><i class="material-icons">whatsapp</i></a></li>
                         <li><a class="green darken-3"><i class="material-icons">facebook</i></a></li>
                         <li><a class="green darken-4"><i class="material-icons">email</i></a></li>
