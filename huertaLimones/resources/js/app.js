@@ -1,4 +1,7 @@
 require('./bootstrap');
+require('./materialize');
+
+M.AutoInit();
 
 import Alpine from 'alpinejs';
 
