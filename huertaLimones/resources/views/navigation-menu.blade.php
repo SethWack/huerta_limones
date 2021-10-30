@@ -13,6 +13,11 @@
                 </a>
             </li>
             <li>
+                <x-jet-nav-link href="{{route('store')}}" :active="request()->routeIs('store')" class="btn btn-flat white light-green-text waves-effect waves-green">
+                    {{ __('store')}}
+                </x-jet-nav-link>
+            </li>
+            <li>
                 <a href="" data-target="user-dropdown" class="dropdown-trigger btn btn-flat light-green white-text waves-effect waves-light">
                  {{ Auth::user()->name }}
                 </a>
@@ -72,7 +77,11 @@
         <a href="" data-target="side-user-dropdown" class="dropdown-trigger btn btn-flat light-green white-text waves-effect waves-light center-align">
          {{ Auth::user()->name }}
         </a>
-
+    </li>
+    <li>
+        <a href="" class="btn btn-flat white light-green-text waves-effect waves-green center-align">
+            {{ __('Store')}}
+        </a>
     </li>
 </ul>
 <ul id="side-user-dropdown" class="dropdown-content">
