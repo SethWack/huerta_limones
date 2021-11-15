@@ -10,7 +10,7 @@ class CreateFolioTable extends Migration
      * Schema table name to migrate
      * @var string
      */
-    public $tableName = 'Folio';
+    public $tableName = 'folios';
 
     /**
      * Run the migrations.
@@ -29,7 +29,7 @@ class CreateFolioTable extends Migration
             $table->unsignedBigInteger('PAG_ID');
 
               $table->foreign('PAG_ID')
-                ->references('id')->on('Pago')
+                ->references('id')->on('pagos')
                 ->onDelete('no action')
                 ->onUpdate('no action');
         });

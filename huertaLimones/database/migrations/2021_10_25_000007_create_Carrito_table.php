@@ -10,7 +10,7 @@ class CreateCarritoTable extends Migration
      * Schema table name to migrate
      * @var string
      */
-    public $tableName = 'Carrito';
+    public $tableName = 'carritos';
 
     /**
      * Run the migrations.

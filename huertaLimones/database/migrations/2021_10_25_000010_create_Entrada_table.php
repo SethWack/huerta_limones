@@ -10,7 +10,7 @@ class CreateEntradaTable extends Migration
      * Schema table name to migrate
      * @var string
      */
-    public $tableName = 'Entrada';
+    public $tableName = 'entradas';
 
     /**
      * Run the migrations.

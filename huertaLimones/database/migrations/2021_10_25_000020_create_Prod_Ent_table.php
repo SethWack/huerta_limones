@@ -10,7 +10,7 @@ class CreateProdEntTable extends Migration
      * Schema table name to migrate
      * @var string
      */
-    public $tableName = 'Prod_Ent';
+    public $tableName = 'prod_ents';
 
     /**
      * Run the migrations.
@@ -29,12 +29,12 @@ class CreateProdEntTable extends Migration
             $table->unsignedBigInteger('ENT_ID');
 
             $table->foreign('ENT_ID')
-                ->references('id')->on('Entrada')
+                ->references('id')->on('entradas')
                 ->onDelete('no action')
                 ->onUpdate('no action');
 
             $table->foreign('PROD_ID')
-                ->references('id')->on('Producto')
+                ->references('id')->on('productos')
                 ->onDelete('no action')
                 ->onUpdate('no action');
         });

@@ -10,7 +10,7 @@ class CreatePagoTable extends Migration
      * Schema table name to migrate
      * @var string
      */
-    public $tableName = 'Pago';
+    public $tableName = 'pagos';
 
     /**
      * Run the migrations.
@@ -35,7 +35,7 @@ class CreatePagoTable extends Migration
                 ->onUpdate('no action');
 
             $table->foreign('CARD_ID')
-                ->references('id')->on('Tipo_Pago')
+                ->references('id')->on('tipo_pagos')
                 ->onDelete('no action')
                 ->onUpdate('no action');
         });

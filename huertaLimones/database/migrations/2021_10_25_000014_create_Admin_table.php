@@ -10,7 +10,7 @@ class CreateAdminTable extends Migration
      * Schema table name to migrate
      * @var string
      */
-    public $tableName = 'Admin';
+    public $tableName = 'admins';
 
     /**
      * Run the migrations.

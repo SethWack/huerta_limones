@@ -10,7 +10,7 @@ class CreateProdSalTable extends Migration
      * Schema table name to migrate
      * @var string
      */
-    public $tableName = 'Prod_Sal';
+    public $tableName = 'prod_sals';
 
     /**
      * Run the migrations.
@@ -30,12 +30,12 @@ class CreateProdSalTable extends Migration
 
 
             $table->foreign('SAL_ID')
-                ->references('id')->on('Salida')
+                ->references('id')->on('salidas')
                 ->onDelete('no action')
                 ->onUpdate('no action');
 
             $table->foreign('PROD_ID')
-                ->references('id')->on('Producto')
+                ->references('id')->on('productos')
                 ->onDelete('no action')
                 ->onUpdate('no action');
         });

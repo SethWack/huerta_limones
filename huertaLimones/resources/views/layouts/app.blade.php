@@ -18,10 +18,10 @@
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
-    <body class="font-sans antialiased">
+    <body class="light-green lighten-4">
         <x-jet-banner />
 
-        <div class="min-h-screen grey lighten-4">
+        <div class="row">
             @livewire('navigation-menu')
 
             <!-- Page Heading -->

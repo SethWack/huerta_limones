@@ -10,7 +10,7 @@ class CreateSalidaTable extends Migration
      * Schema table name to migrate
      * @var string
      */
-    public $tableName = 'Salida';
+    public $tableName = 'salidas';
 
     /**
      * Run the migrations.

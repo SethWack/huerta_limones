@@ -10,7 +10,7 @@ class CreateProductoTable extends Migration
      * Schema table name to migrate
      * @var string
      */
-    public $tableName = 'Producto';
+    public $tableName = 'productos';
 
     /**
      * Run the migrations.
@@ -24,12 +24,13 @@ class CreateProductoTable extends Migration
             $table->engine = 'InnoDB';
             $table->id();
             $table->string('PROD_PRICE', 45);
+            $table->string('IMG_PATH');
         });
         Schema::table($this->tableName, function(Blueprint $table){
 
             $table->unsignedBigInteger('TIPO_ID');
             $table->foreign('TIPO_ID')
-                ->references('id')->on('Prod_Tipo')
+                ->references('id')->on('prod_tipos')
                 ->onDelete('no action')
                 ->onUpdate('no action');
         });

@@ -10,7 +10,7 @@ class CreateUserEntTable extends Migration
      * Schema table name to migrate
      * @var string
      */
-    public $tableName = 'User_Ent';
+    public $tableName = 'user_ents';
 
     /**
      * Run the migrations.

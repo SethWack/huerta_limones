@@ -1,14 +1,29 @@
 <x-app-layout>
     <x-slot name="header">
-        <div class="container white">
-            <h2 class="deep-orange-text center-align">
-                {{ __('Welcome!') }}
-            </h2>
+        <div class="background-image grey">
+            <div class="row valign-wrapper">
+                <div class="col s12 hide-on-med-and-up center-align">
+                    <h3 class="">
+                        <a href="{{ route('dashboard') }}" class="white-text">
+                            <i class="material-icons">grass</i>
+                            Huerta Limones
+                        </a>
+                    </h3>
+                    <h4 class="white-text center-align">
+                        {{__('Bienvenidos!')}}
+                    </h4>
+                </div>
+                <div class="col s12 center-align hide-on-small-and-down">
+                    <h2 class="white-text center-align ">
+                        {{ __('Bienvenidos!') }}
+                    </h2>
+                </div>
+            </div>
         </div>
     </x-slot>
 
     <x-slot name="slot">
-        <div class="container row">
+        <div class="row">
             <div class="col m4 l4 hide-on-small-and-down z-depth-3 blue white-text">
                 twitter
             </div>
@@ -19,12 +34,12 @@
 
             </div>
         </div>
-        <div class="container row">
+        <div class="row">
             <div class="col s12 hide-on-med-and-up center">
                 twitter
             </div>
         </div>
-        <div class="container row">
+        <div class="row">
             <div class="col s12">
                 <div class="fixed-action-btn toolbar">
                     <a class="btn-floating btn-large green right">

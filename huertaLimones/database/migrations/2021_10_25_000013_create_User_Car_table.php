@@ -10,7 +10,7 @@ class CreateUserCarTable extends Migration
      * Schema table name to migrate
      * @var string
      */
-    public $tableName = 'User_Car';
+    public $tableName = 'user_Cars';
 
     /**
      * Run the migrations.
@@ -34,7 +34,7 @@ class CreateUserCarTable extends Migration
                 ->onUpdate('no action');
 
             $table->foreign('CAR_ID')
-                ->references('id')->on('Carrito')
+                ->references('id')->on('carritos')
                 ->onDelete('no action')
                 ->onUpdate('no action');
         });

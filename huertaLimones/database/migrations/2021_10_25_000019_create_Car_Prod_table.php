@@ -10,7 +10,7 @@ class CreateCarProdTable extends Migration
      * Schema table name to migrate
      * @var string
      */
-    public $tableName = 'Car_Prod';
+    public $tableName = 'car_prods';
 
     /**
      * Run the migrations.
@@ -29,12 +29,12 @@ class CreateCarProdTable extends Migration
             $table->unsignedBigInteger('PROD_ID');
 
             $table->foreign('CAR_ID')
-                ->references('id')->on('Carrito')
+                ->references('id')->on('carritos')
                 ->onDelete('no action')
                 ->onUpdate('no action');
 
             $table->foreign('PROD_ID')
-                ->references('id')->on('Producto')
+                ->references('id')->on('productos')
                 ->onDelete('no action')
                 ->onUpdate('no action');
         });

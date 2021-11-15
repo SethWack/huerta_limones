@@ -10,7 +10,7 @@ class CreatePagEntTable extends Migration
      * Schema table name to migrate
      * @var string
      */
-    public $tableName = 'Pag_Ent';
+    public $tableName = 'pag_ents';
 
     /**
      * Run the migrations.
@@ -29,12 +29,12 @@ class CreatePagEntTable extends Migration
             $table->unsignedBigInteger('ENTG_ID');
 
             $table->foreign('PAG_ID')
-                ->references('id')->on('Pago')
+                ->references('id')->on('pagos')
                 ->onDelete('no action')
                 ->onUpdate('no action');
 
             $table->foreign('ENTG_ID')
-                ->references('id')->on('Entrega')
+                ->references('id')->on('entregas')
                 ->onDelete('no action')
                 ->onUpdate('no action');
         });

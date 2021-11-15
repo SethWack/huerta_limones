@@ -10,7 +10,7 @@ class CreateTipoPagoTable extends Migration
      * Schema table name to migrate
      * @var string
      */
-    public $tableName = 'Tipo_Pago';
+    public $tableName = 'tipo_pagos';
 
     /**
      * Run the migrations.

@@ -10,7 +10,7 @@ class CreatePagProdTable extends Migration
      * Schema table name to migrate
      * @var string
      */
-    public $tableName = 'pag_prod';
+    public $tableName = 'pag_prods';
 
     /**
      * Run the migrations.
@@ -29,12 +29,12 @@ class CreatePagProdTable extends Migration
             $table->unsignedBigInteger('PROD_ID');
 
             $table->foreign('PAG_ID')
-                ->references('id')->on('Pago')
+                ->references('id')->on('pagos')
                 ->onDelete('no action')
                 ->onUpdate('no action');
 
             $table->foreign('PROD_ID')
-                ->references('id')->on('Producto')
+                ->references('id')->on('productos')
                 ->onDelete('no action')
                 ->onUpdate('no action');
         });

@@ -10,7 +10,7 @@ class CreateProdTipoTable extends Migration
      * Schema table name to migrate
      * @var string
      */
-    public $tableName = 'Prod_Tipo';
+    public $tableName = 'prod_tipos';
 
     /**
      * Run the migrations.

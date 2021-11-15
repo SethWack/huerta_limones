@@ -2,3 +2,12 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 @import 'materialize-css';
+
+.background-image{
+    background-image: url('https://i.imgur.com/H8rNtwz.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 600px;
+}

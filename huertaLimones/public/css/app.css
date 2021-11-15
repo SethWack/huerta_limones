@@ -9235,6 +9235,14 @@ input[type=range]::-ms-thumb {
     margin-top: 1.2rem;
   }
 }
+.background-image{
+    background-image: url('https://i.imgur.com/H8rNtwz.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 600px;
+}
 .hover\:border-gray-300:hover {
 	--tw-border-opacity: 1;
 	border-color: rgba(209, 213, 219, var(--tw-border-opacity));
