@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -63,6 +64,26 @@ class DatabaseSeeder extends Seeder
             'PROD_PRICE' => 40.00,
             'IMG_PATH' => 'lime6.jpg',
             'TIPO_ID' => 3
+        ]);
+        DB::table('users')->insert([
+            'name' => 'ADMIN1',
+            'email' => 'admin@gmail.com',
+            'password' => Hash::make('qwerty_12345678'),
+            'admin' => True
+        ]);
+        DB::table('users')->insert([
+            'name' => 'userTest',
+            'email' => 'test@gmail.com',
+            'password' => Hash::make('12345678'),
+            'admin' => False
+        ]);
+        DB::table('blogs')->insert([
+            'BLOG_SLUG' => 'Test1',
+            'BLOG_TITLE' => 'Test1 Title',
+            'BLOG_DESC' => 'This is a description',
+            'BLOG_TEXT' => 'This is a longer text: Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias deserunt beatae, facere iste tempore voluptates enim cupiditate commodi, perferendis inventore consequatur minima! Atque, ex aperiam placeat magnam cupiditate vero ipsa?',
+            'BLOG_IMG' => '1.jpg',
+            'USER_ID' => '1'
         ]);
     }
 }

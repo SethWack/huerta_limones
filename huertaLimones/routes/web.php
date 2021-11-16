@@ -24,3 +24,11 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/store', function(){
     return view('store');
 })->name('store');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/blogs', function(){
+    return view('blogs');
+})->name('blogs');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/blogs/make', function(){
+    return view('blogs-make');
+})->name('make');

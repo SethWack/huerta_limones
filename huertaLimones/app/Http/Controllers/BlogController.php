@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Livewire\Blogs;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BlogController extends Controller
 {
@@ -36,16 +38,14 @@ class BlogController extends Controller
     {
         //
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    static function show()
     {
-        //
+        $blogs = DB::table('blogs')->get();
+        return $blogs;
+    }
+    static function getUsers(){
+        $users = DB::table('users')->get();
+        return $users;
     }
 
     /**

@@ -1,42 +1,66 @@
 <x-app-layout>
     <x-slot name="header">
-        <div class="background-image grey">
-            <div class="row valign-wrapper">
-                <div class="col s12 hide-on-med-and-up center-align">
-                    <h3 class="">
-                        <a href="{{ route('dashboard') }}" class="white-text">
-                            <i class="material-icons">grass</i>
-                            Huerta Limones
-                        </a>
-                    </h3>
-                    <h4 class="white-text center-align">
-                        {{__('Bienvenidos!')}}
-                    </h4>
+        <div class="row">
+            <div class="col s12 hide-on-small-and-down background-image">
+                <div class="row">
+                    <h1 class="white-text center-align">Comprar Limones</h1>
+                    <div class="col s2"></div>
+                    <div class="col s8 deep-orange carousel carousel-slider center">
+                        <div class="carousel-fixed-item center">
+                            <a class="btn-flat light-green black-text waves-effect waves-green" href="{{route('store')}}">Comprar</a>
+                        </div>
+                        <div class="carousel-item green">
+                            <img class="responsive-img" src="https://cdn.pixabay.com/photo/2021/05/05/18/06/lemon-6231697_960_720.jpg" alt="">
+                        </div>
+                        <div class="carousel-item orange">
+                            <img class="responsive-img" src="https://cdn.pixabay.com/photo/2017/03/10/15/15/lime-2133091_960_720.jpg" alt="">
+                        </div>
+                        <div class="carousel-item light-green">
+                            <img class="responsive-img" src="https://cdn.pixabay.com/photo/2017/12/15/15/39/food-3021263_960_720.jpg" alt="">
+                        </div>
+                        <div class="carousel-item deep-orange">
+                            <img class="responsive-img" src="https://cdn.pixabay.com/photo/2018/09/22/01/03/tangerine-3694369_960_720.jpg" alt="">
+                        </div>
+                    </div>
                 </div>
-                <div class="col s12 center-align hide-on-small-and-down">
-                    <h2 class="white-text center-align ">
-                        {{ __('Bienvenidos!') }}
-                    </h2>
+            </div>
+            <div class="col s12 hide-on-med-and-up">
+                <div class="row light-green lighten-5">
+                    <div class="col s12 carousel carousel-slider center">
+                        <div class="carousel-fixed-item center">
+                            <a class="btn-flat light-green black-text waves-effect waves-green" href="{{route('store')}}">Comprar</a>
+                        </div>
+                        <div class="carousel-item">
+                            <img class="" height="600px" src="https://cdn.pixabay.com/photo/2021/05/05/18/06/lemon-6231697_960_720.jpg" alt="">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="" height="600px" src="https://cdn.pixabay.com/photo/2017/03/10/15/15/lime-2133091_960_720.jpg" alt="">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="" height="600px" src="https://cdn.pixabay.com/photo/2017/12/15/15/39/food-3021263_960_720.jpg" alt="">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="" height="600px" src="https://cdn.pixabay.com/photo/2018/09/22/01/03/tangerine-3694369_960_720.jpg" alt="">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </x-slot>
 
     <x-slot name="slot">
-        <div class="row">
-            <div class="col m4 l4 hide-on-small-and-down z-depth-3 blue white-text">
-                twitter
+        <div class="row container">
+            <div class="col m6 hide-on-small-and-down z-depth-3 blue white-text">
+                @livewire('twitter')
             </div>
-            <div class="col s12 m8 l6 z-depth-3">
-                mainpage
+            <div class="col s12 m6 z-depth-3">
+                @livewire('blogs')
             </div>
-            <div class="col l2 hide-on-med-and-down">
-
-            </div>
+            <div class="col"></div>
         </div>
-        <div class="row">
+        <div class="row container">
             <div class="col s12 hide-on-med-and-up center">
-                twitter
+                @livewire('twitter')
             </div>
         </div>
         <div class="row">
