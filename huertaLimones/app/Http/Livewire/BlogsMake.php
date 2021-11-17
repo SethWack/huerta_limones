@@ -22,7 +22,6 @@ class BlogsMake extends Component
     }
 
     public function submit(){
-
         $this->state['BLOG_SLUG'] = $this->state['BLOG_TITLE'];
         $this->state['USER_ID'] = 1;
         $validator = Validator::make($this->state,[
@@ -32,7 +31,7 @@ class BlogsMake extends Component
             'BLOG_TEXT' => 'required',
             'USER_ID' => 'required',
         ])->validate();
-        $validator['BLOG_IMG'] = $this->BLOG_IMG->store('/','blogs');
+        $validator['BLOG_IMG'] = $this->BLOG_IMG->store('blogs');
 
         Blogs::create($validator);
         return redirect('dashboard')->with('message', 'Your Post was Created!');

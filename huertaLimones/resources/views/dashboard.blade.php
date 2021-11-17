@@ -5,7 +5,7 @@
                 <div class="row">
                     <h1 class="white-text center-align">Comprar Limones</h1>
                     <div class="col s2"></div>
-                    <div class="col s8 deep-orange carousel carousel-slider center">
+                    <div class="col s8 deep-orange carousel carousel-slider z-depth-3 center">
                         <div class="carousel-fixed-item center">
                             <a class="btn-flat light-green black-text waves-effect waves-green" href="{{route('store')}}">Comprar</a>
                         </div>
@@ -26,7 +26,7 @@
             </div>
             <div class="col s12 hide-on-med-and-up">
                 <div class="row light-green lighten-5">
-                    <div class="col s12 carousel carousel-slider center">
+                    <div class="col s12 carousel carousel-slider z-depth-3 center">
                         <div class="carousel-fixed-item center">
                             <a class="btn-flat light-green black-text waves-effect waves-green" href="{{route('store')}}">Comprar</a>
                         </div>
@@ -59,7 +59,7 @@
             <div class="col"></div>
         </div>
         <div class="row container">
-            <div class="col s12 hide-on-med-and-up center">
+            <div class="col s12 hide-on-med-and-up blue center">
                 @livewire('twitter')
             </div>
         </div>
@@ -87,4 +87,5 @@
             toolbarEnabled: true
         });
     });
+
 </script>

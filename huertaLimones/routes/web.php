@@ -32,3 +32,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/blogs', function(){
 Route::middleware(['auth:sanctum', 'verified'])->get('/blogs/make', function(){
     return view('blogs-make');
 })->name('make');
+Route::middleware(['auth:sanctum', 'verified'])->get('/blogs/edit', function(){
+    return view('blogs-edit');
+})->name('blogs-edit');

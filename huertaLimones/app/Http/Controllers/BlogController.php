@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Livewire\Blogs;
+use App\Models\Blogs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -54,9 +54,10 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    static function edit($id)
     {
-        //
+        $blog = Blogs::where('id',$id)->first();
+        return $blog;
     }
 
     /**
@@ -77,8 +78,10 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    static function destroy($id)
     {
-        //
+        $blog = Blogs::where('id', $id);
+        $blog->delete();
+        return null;
     }
 }

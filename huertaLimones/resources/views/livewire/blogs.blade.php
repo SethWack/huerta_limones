@@ -13,18 +13,30 @@
             @foreach ($errors->all() as $error)
                 <li>{{$error}}</li>
             @endforeach
+                <li>{{$messages}}</li>
         </ul>
     </div>
     @foreach ($blogs as $blog)
         <div class="row">
             <div class="card small hoverable light-green lighten-5">
                 <div class="card-image waves-effect waves-block waves-green">
-                    <img class="activator" src="{{Storage::disk('blogs')->url($blog->BLOG_IMG)}}" alt="">
+                    <img class="materialboxed" src="{{asset('images/'.$blog->BLOG_IMG)}}" alt="">
                 </div>
                 <div class="card-content">
                     <span class="card-title activator deep-orange-text">{{$blog->BLOG_TITLE}}<i class="material-icons right">more_vert</i></span>
-                    <span>{{$blog->BLOG_DESC}}</span>
-                    <a class="btn-flat white deep-orange-text" href="">See More</a>
+                    <p>{{$blog->BLOG_DESC}}</p>
+                    @guest
+                    @else
+                        @foreach($users as $user)
+                            @if($user->id == 1 && $user->admin == True)
+                                <form method="GET" action="{{route('blogs-edit')}}">
+                                    <input type="hidden" value="{{$blog->id}}" id="ids" name="ids" />
+                                    <button class="btn-flat deep-orange white-text right" type="submit">Edit</button>
+                                </form>
+                                <button class="btn-flat red white-text right" wire:click="delBlogs({{$blog->id}})">delete</button>
+                            @endif
+                        @endforeach
+                    @endguest
                 </div>
                 <div class="card-reveal">
                     <span class="card-title deep-orange-text">{{$blog->BLOG_TITLE}}<i class="material-icons right">close</i></span>

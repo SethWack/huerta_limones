@@ -1,6 +1,6 @@
 <nav x-data="{ open: false }" class="white z-depth-3">
     <!-- Primary Navigation Menu -->
-    <div class="nav-wrapper">
+    <div class="nav-wrapper z-depth-3">
         <a href="{{ route('dashboard') }}" class="light-green-text brand-logo hide-on-small-and-down">
             <i class="material-icons left">grass</i>
             Huerta Limones
