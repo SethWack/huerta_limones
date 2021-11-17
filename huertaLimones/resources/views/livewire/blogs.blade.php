@@ -19,7 +19,7 @@
         <div class="row">
             <div class="card small hoverable light-green lighten-5">
                 <div class="card-image waves-effect waves-block waves-green">
-                    <img class="activator" src="{{asset('images/'.$blog->BLOG_IMG)}}" alt="">
+                    <img class="activator" src="{{Storage::disk('blogs')->url($blog->BLOG_IMG)}}" alt="">
                 </div>
                 <div class="card-content">
                     <span class="card-title activator deep-orange-text">{{$blog->BLOG_TITLE}}<i class="material-icons right">more_vert</i></span>

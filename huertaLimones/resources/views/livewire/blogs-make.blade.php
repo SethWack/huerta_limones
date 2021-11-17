@@ -14,26 +14,26 @@
             <div class="row">
                 <div class="input-field">
                     <i class="material-icons prefix">message</i>
-                    <input type="text" wire:model="BLOG_TITLE" name="BLOG_TITLE" id="BLOG_TITLE" placeholder="Title" class="right">
+                    <input type="text" wire:model="state.BLOG_TITLE" name="state.BLOG_TITLE" id="BLOG_TITLE" placeholder="Title" class="right">
                     <label for="BLOG_TITLE">Title</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field">
                     <i class="material-icons prefix">edit</i>
-                    <textarea class="materialize-textarea" id="BLOG_TEXT" wire:model="BLOG_TEXT" name='BLOG_TEXT' placeholder="Description"></textarea>
+                    <textarea class="materialize-textarea" id="BLOG_TEXT" wire:model="state.BLOG_TEXT" name='state.BLOG_TEXT' placeholder="Description"></textarea>
                     <label for="BLOG_TEXT">Description</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field">
                     <i class="material-icons prefix">notes</i>
-                    <input type="text" id="BLOG_DESC" wire:model="BLOG_DESC" name='BLOG_DESC' placeholder="give a quick description" class="right">
+                    <input type="text" id="BLOG_DESC" wire:model="state.BLOG_DESC" name='state.BLOG_DESC' placeholder="give a quick description" class="right">
                     <label for="BLOG_DESC">description</label>
                 </div>
             </div>
-            <input type="hidden" value="1" wire:model="USER_ID" name="USER_ID">
-            <input type="hidden" value="1" wire:model="BLOG_SLUG" name="BLOG_SLUG">
+            <input type="hidden" value="1" wire:model="state.USER_ID" name="state.USER_ID">
+            <input type="hidden" value="1" wire:model="state.BLOG_SLUG" name="state.BLOG_SLUG">
             <div class="row">
                 <div class="file-field input-field">
                     <div class="btn-flat orange white-text">
