@@ -25,6 +25,8 @@ class CreateProductoTable extends Migration
             $table->id();
             $table->string('PROD_PRICE', 45);
             $table->string('IMG_PATH');
+            $table->integer('PROD_AMMOUNT');
+            $table->timestamps();
         });
         Schema::table($this->tableName, function(Blueprint $table){
 

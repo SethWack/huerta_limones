@@ -43,27 +43,32 @@ class DatabaseSeeder extends Seeder
         DB::table('productos')->insert([
             'PROD_PRICE' => 20.00,
             'IMG_PATH' => 'lime1.jpg',
-            'TIPO_ID' => 1
+            'TIPO_ID' => 1,
+            'PROD_AMMOUNT' => 200
         ]);
         DB::table('productos')->insert([
             'PROD_PRICE' => 40.00,
             'IMG_PATH' => 'lime2.jpg',
-            'TIPO_ID' => 2
+            'TIPO_ID' => 2,
+            'PROD_AMMOUNT' => 100
         ]);
         DB::table('productos')->insert([
             'PROD_PRICE' => 35.00,
             'IMG_PATH' => 'lime3.jpg',
-            'TIPO_ID' => 3
+            'TIPO_ID' => 3,
+            'PROD_AMMOUNT' => 50
         ]);
         DB::table('productos')->insert([
             'PROD_PRICE' => 20.00,
             'IMG_PATH' => 'lime4.jpg',
-            'TIPO_ID' => 5
+            'TIPO_ID' => 5,
+            'PROD_AMMOUNT' => 139
         ]);
         DB::table('productos')->insert([
             'PROD_PRICE' => 40.00,
             'IMG_PATH' => 'lime6.jpg',
-            'TIPO_ID' => 3
+            'TIPO_ID' => 3,
+            'PROD_AMMOUNT' => 20
         ]);
         DB::table('users')->insert([
             'name' => 'ADMIN1',

@@ -35,5 +35,6 @@ class BlogsMake extends Component
 
         Blogs::create($validator);
         return redirect('dashboard')->with('message', 'Your Post was Created!');
+        session()->flash('message', 'Usuario creado exitosamente!');
     }
 }

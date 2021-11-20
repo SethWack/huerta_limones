@@ -33,6 +33,11 @@
                     </div>
                 @endif
             @else
+                @if (Auth::user()->admin == 1)
+                    <li>
+                        <a href="{{ route('admin')}}" class="btn-flat white blue-text">Admin</a>
+                    </li>
+                @endif
                 <li>
                     <a href="" data-target="user-dropdown" class="dropdown-trigger btn btn-flat light-green white-text waves-effect waves-light">
                     {{ Auth::user()->name }}
@@ -76,7 +81,7 @@
         </a>
     </li>
     <li>
-        <a href="" class="btn btn-flat white light-green-text waves-effect waves-green center-align">
+        <a href="{{route('store')}}" class="btn btn-flat white light-green-text waves-effect waves-green center-align">
             {{ __('Store')}}
         </a>
     </li>
@@ -84,23 +89,29 @@
         @if (Route::has('login'))
                 @auth
                 @else
-                    <li>
-                        <a href="{{ route('login') }}" class="btn btn-flat white green-text">Log in</a>
-                    </li>
+                <li>
+                    <a href="{{ route('login') }}" class="btn btn-flat white green-text center-align">Log in</a>
+                </li>
                     @if (Route::has('register'))
                         <li>
-                            <a href="{{ route('register') }}" class="btn btn-flat whte green-text">Register</a>
+                        <a href="{{ route('register') }}" class="btn btn-flat white green-text center-align">Register</a>
                         </li>
                     @endif
                 @endauth
             </div>
         @endif
     @else
-    <li>
-        <a href="" data-target="side-user-dropdown" class="dropdown-trigger btn btn-flat light-green white-text waves-effect waves-light center-align">
-         {{ Auth::user()->name }}
-        </a>
-    </li>
+        @if (Auth::user()->admin == 1)
+            <li>
+                <a href="{{ route('admin')}}" class="btn-flat white blue-text center-align">Admin</a>
+            </li>
+        @endif
+        <li>
+            <a href="" data-target="user-dropdown" class="dropdown-trigger btn btn-flat light-green white-text waves-effect waves-light">
+            {{ Auth::user()->name }}
+            </a>
+
+        </li>
     @endguest
 
 </ul>
@@ -113,13 +124,13 @@
         </div></li>
     @endif
     <li>
-        <a href="{{route('profile.show')}}">
+        <a href="{{route('profile.show')}}" class="btn-flat green-text center-align center">
             {{ __('Profile')}}
         </a>
     </li>
     @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
         <li>
-            <a href="{{ route('api-tokens.index') }}">
+            <a href="{{ route('api-tokens.index') }}" class="btn-flat green-text center-align">
             {{ __('API Tokens') }}
             <a>
         </li>
@@ -127,7 +138,7 @@
     <li class="deep-orange white-text btn-float">
         <form method="POST" action="{{ route('logout') }}">
             @csrf
-            <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();" >
+            <a class="btn-flat deep-orange white-text" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();" >
                 {{ __('Log Out') }}
             </a>
         </form>

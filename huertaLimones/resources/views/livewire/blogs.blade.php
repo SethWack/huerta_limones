@@ -1,12 +1,9 @@
 <div>
     @guest
     @else
-        @foreach ($users as $user)
-            @if ($user->id == 1 && $user->admin == True)
+            @if (Auth::user()->id == 1 && Auth::user()->admin == True)
                 <a class="btn-flat deep-orange darken-3 white-text" href="{{route('make')}}">Make Blog</a>
             @endif
-
-        @endforeach
     @endguest
     <div class="container red white-text">
         <ul>
@@ -27,15 +24,13 @@
                     <p>{{$blog->BLOG_DESC}}</p>
                     @guest
                     @else
-                        @foreach($users as $user)
-                            @if($user->id == 1 && $user->admin == True)
+                            @if(Auth::user()->id == 1 && Auth::user()->admin == True)
                                 <form method="GET" action="{{route('blogs-edit')}}">
                                     <input type="hidden" value="{{$blog->id}}" id="ids" name="ids" />
                                     <button class="btn-flat deep-orange white-text right" type="submit">Edit</button>
                                 </form>
                                 <button class="btn-flat red white-text right" wire:click="delBlogs({{$blog->id}})">delete</button>
                             @endif
-                        @endforeach
                     @endguest
                 </div>
                 <div class="card-reveal">

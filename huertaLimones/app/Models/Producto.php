@@ -11,7 +11,9 @@ class Producto extends Model
 
     protected $fillable = [
         'PROD_PRICE',
-        'TIPO_ID'
+        'TIPO_ID',
+        'IMG_PATH',
+        'PROD_AMMOUNT'
     ];
 
     public function prod_tipo(){

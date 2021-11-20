@@ -22,6 +22,7 @@
                                     @endforeach
                                 </span>
                                 <p>precio:{{$product->PROD_PRICE}}</p>
+                                <p>cantidad disponible: {{$product->PROD_AMMOUNT}}</p>
                             </div>
                             <div class="card-action light-green">
                                 <a href="" class="btn btn-flat white deep-orange-text">buy</a>
