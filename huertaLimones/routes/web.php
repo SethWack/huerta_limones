@@ -1,5 +1,13 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ComprasController;
+use App\Http\Controllers\EntradaController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SalidaController;
+use App\Http\Controllers\StoreController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,37 +29,11 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/store', function(){
-    return view('store');
-})->name('store');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/blogs', function(){
-    return view('blogs');
-})->name('blogs');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/blogs/make', function(){
-    return view('blogs-make');
-})->name('make');
-Route::middleware(['auth:sanctum', 'verified'])->get('/blogs/edit', function(){
-    return view('blogs-edit');
-})->name('blogs-edit');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/admin', function () {
-    return view('admin');
-})->name('admin');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/admin/users', function(){
-    return view ('users');
-})->name('users');
-Route::middleware(['auth:sanctum', 'verified'])->get('/admin/compras', function(){
-    return view ('compras');
-})->name('compras');
-Route::middleware(['auth:sanctum', 'verified'])->get('/admin/productos', function(){
-    return view ('productos');
-})->name('productos');
-Route::middleware(['auth:sanctum', 'verified'])->get('/admin/entradas', function(){
-    return view ('entradas');
-})->name('entradas');
-Route::middleware(['auth:sanctum', 'verified'])->get('/admin/salida', function(){
-    return view ('salidas');
-})->name('salidas');
+Route::resource('/blog', BlogController::class);
+Route::resource('/store', StoreController::class);
+Route::resource('/admin', AdminController::class);
+Route::resource('/users', UsersController::class);
+Route::resource('/productos', ProductController::class);
+Route::resource('/entradas', EntradaController::class);
+Route::resource('/salidas', SalidaController::class);
+Route::resource('/compras', ComprasController::class);

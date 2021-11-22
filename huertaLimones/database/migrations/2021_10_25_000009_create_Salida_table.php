@@ -24,6 +24,7 @@ class CreateSalidaTable extends Migration
             $table->engine = 'InnoDB';
             $table->id();
             $table->date('SAL_DATE')->nullable();
+            $table->timestamps();
         });
     }
 

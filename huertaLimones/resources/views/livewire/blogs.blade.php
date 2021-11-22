@@ -1,18 +1,20 @@
 <div>
     @guest
     @else
-            @if (Auth::user()->id == 1 && Auth::user()->admin == True)
-                <a class="btn-flat deep-orange darken-3 white-text" href="{{route('make')}}">Make Blog</a>
-            @endif
+        @if (Auth::user()->admin == 1)
+            <a href="/blog/create" class="btn-flat deep-orange white-text">
+                Create Blog
+            </a>
+        @endif
     @endguest
     <div class="container red white-text">
         <ul>
             @foreach ($errors->all() as $error)
                 <li>{{$error}}</li>
             @endforeach
-                <li>{{$messages}}</li>
         </ul>
     </div>
+
     @foreach ($blogs as $blog)
         <div class="row">
             <div class="card small hoverable light-green lighten-5">
@@ -24,13 +26,6 @@
                     <p>{{$blog->BLOG_DESC}}</p>
                     @guest
                     @else
-                            @if(Auth::user()->id == 1 && Auth::user()->admin == True)
-                                <form method="GET" action="{{route('blogs-edit')}}">
-                                    <input type="hidden" value="{{$blog->id}}" id="ids" name="ids" />
-                                    <button class="btn-flat deep-orange white-text right" type="submit">Edit</button>
-                                </form>
-                                <button class="btn-flat red white-text right" wire:click="delBlogs({{$blog->id}})">delete</button>
-                            @endif
                     @endguest
                 </div>
                 <div class="card-reveal">
@@ -38,8 +33,8 @@
                     <span class="green-text">By:
                         @foreach ($users as $user)
                             @if ($user->id == $blog->USER_ID)
-                                @if ($user->name == 'ADMIN1')
-                                    Huerta Limones
+                                @if ($user->id == 1)
+                                    HUERTA LIMON
                                 @else
                                     {{$user->name}}
                                 @endif
@@ -48,7 +43,21 @@
                     </span>
                     <p>{{$blog->BLOG_TEXT}}</p>
                 </div>
+                <div class="card-action">
+                    @guest
+                    @else
+                        @if (Auth::user()->admin == 1)
+                            <a href="/blog/{{$blog->BLOG_SLUG}}/edit" class="btn-flat green white-text right">Edit</a>
+                            <form action="/blog/{{$blog->BLOG_SLUG}}" method="POST">
+                            @csrf
+                            @method('delete')
+                                <button class="btn-flat red white-text right">Delete</button>
+                            </form>
+                        @endif
+                    @endguest
+                </div>
             </div>
+
         </div>
     @endforeach
 </div>

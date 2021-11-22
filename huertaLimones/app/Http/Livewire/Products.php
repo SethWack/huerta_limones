@@ -30,13 +30,6 @@ class Products extends Component
             ->with('productos', $products)
             ->with('tipos', $types);
     }
-    public function prodEdit($id){
-        $this->prodList = [];
-        $this->prodList = $this->editList;
-        $this->validate();
-        $this->prodList['IMG_PATH'] = $this->IMG_PATH;
-        Producto::where('id',$id)->update($this->prodList);
-    }
     public function getImage($img){
         $this->IMG_PATH = $img;
     }

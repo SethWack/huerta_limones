@@ -13,16 +13,7 @@ class Blogs extends Component
         $getUsers = BlogController::getUsers();
         return view('livewire.blogs')
             ->with('blogs', $getBlogs)
-            ->with('users', $getUsers)
-            ->with('messages', ' ');
+            ->with('users', $getUsers);
     }
 
-    public function delBlogs($id){
-        BlogController::destroy($id);
-        return view('livewire.blogs')
-            ->with('messages' , 'Blog deleted!');
-    }
-    public function editBlogs(){
-        return view('livewire.blogs-edit');
-    }
 }

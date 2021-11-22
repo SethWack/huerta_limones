@@ -24,6 +24,7 @@ class CreateEntradaTable extends Migration
             $table->engine = 'InnoDB';
             $table->id();
             $table->date('ENT_DATE');
+            $table->timestamps();
         });
     }
 

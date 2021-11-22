@@ -1,21 +1,21 @@
 <nav x-data="{ open: false }" class="white z-depth-3">
     <!-- Primary Navigation Menu -->
     <div class="nav-wrapper z-depth-3">
-        <a href="{{ route('dashboard') }}" class="light-green-text brand-logo hide-on-small-and-down">
+        <a href="/" class="light-green-text brand-logo hide-on-small-and-down">
             <i class="material-icons left">grass</i>
             Huerta Limones
         </a>
         <a href="" data-target="side-button" class="sidenav-trigger deep-orange-text"><i class="material-icons">menu</i></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li>
-                <a href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')" class="btn btn-flat waves-effect waves-green white light-green-text">
-                        {{ __('Main') }}
+                <a href="/" class="btn btn-flat waves-effect waves-green white light-green-text">
+                    Home
                 </a>
             </li>
             <li>
-                <x-jet-nav-link href="{{route('store')}}" :active="request()->routeIs('store')" class="btn btn-flat white light-green-text waves-effect waves-green">
-                    {{ __('store')}}
-                </x-jet-nav-link>
+                <a href="/store" class="btn btn-flat white light-green-text waves-effect waves-green">
+                    Store
+                </a>
             </li>
             @guest
                 @if (Route::has('login'))
@@ -35,14 +35,13 @@
             @else
                 @if (Auth::user()->admin == 1)
                     <li>
-                        <a href="{{ route('admin')}}" class="btn-flat white blue-text">Admin</a>
+                        <a href="/admin" class="btn-flat white blue-text">Admin</a>
                     </li>
                 @endif
                 <li>
-                    <a href="" data-target="user-dropdown" class="dropdown-trigger btn btn-flat light-green white-text waves-effect waves-light">
-                    {{ Auth::user()->name }}
+                    <a data-target="user-dropdown" class="dropdown-trigger btn btn-flat light-green white-text waves-effect waves-light">
+                        <i class="material-icons left">edit</i>{{ Auth::user()->name }}
                     </a>
-
                 </li>
             @endguest
         </ul>
@@ -76,13 +75,13 @@
 @endguest
 <ul class="sidenav" id="side-button">
     <li>
-        <a href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')" class="btn btn-flat waves-effect waves-green white light-green-text">
-                {{ __('Main') }}
+        <a href="/" :active="request()->routeIs('dashboard')" class="btn btn-flat waves-effect waves-green white light-green-text">
+                Home
         </a>
     </li>
     <li>
-        <a href="{{route('store')}}" class="btn btn-flat white light-green-text waves-effect waves-green center-align">
-            {{ __('Store')}}
+        <a href="/store" class="btn btn-flat white light-green-text waves-effect waves-green center-align">
+            Store
         </a>
     </li>
     @guest
@@ -103,11 +102,11 @@
     @else
         @if (Auth::user()->admin == 1)
             <li>
-                <a href="{{ route('admin')}}" class="btn-flat white blue-text center-align">Admin</a>
+                <a href="/admin" class="btn-flat white blue-text center-align">Admin</a>
             </li>
         @endif
         <li>
-            <a href="" data-target="user-dropdown" class="dropdown-trigger btn btn-flat light-green white-text waves-effect waves-light">
+            <a href="" data-target="side-user-dropdown" class="dropdown-trigger btn btn-flat light-green white-text waves-effect waves-light">
             {{ Auth::user()->name }}
             </a>
 

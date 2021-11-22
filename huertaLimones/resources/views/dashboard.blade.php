@@ -1,13 +1,12 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="row">
-            <div class="col s12 hide-on-small-and-down background-image">
+            <div class="col s12 hide-on-small-and-down green darken-4">
                 <div class="row">
                     <h1 class="white-text center-align">Comprar Limones</h1>
-                    <div class="col s2"></div>
-                    <div class="col s8 deep-orange carousel carousel-slider z-depth-3 center">
+                    <div class="col s12 deep-orange carousel carousel-slider z-depth-3 center">
                         <div class="carousel-fixed-item center">
-                            <a class="btn-flat light-green black-text waves-effect waves-green" href="{{route('store')}}">Comprar</a>
+                            <a class="btn-flat light-green black-text waves-effect waves-green" href="/store">Comprar</a>
                         </div>
                         <div class="carousel-item green">
                             <img class="responsive-img" src="https://cdn.pixabay.com/photo/2021/05/05/18/06/lemon-6231697_960_720.jpg" alt="">
@@ -28,7 +27,7 @@
                 <div class="row light-green lighten-5">
                     <div class="col s12 carousel carousel-slider z-depth-3 center">
                         <div class="carousel-fixed-item center">
-                            <a class="btn-flat light-green black-text waves-effect waves-green" href="{{route('store')}}">Comprar</a>
+                            <a class="btn-flat light-green black-text waves-effect waves-green" href="/store">Comprar</a>
                         </div>
                         <div class="carousel-item">
                             <img class="" height="600px" src="https://cdn.pixabay.com/photo/2021/05/05/18/06/lemon-6231697_960_720.jpg" alt="">
@@ -54,6 +53,13 @@
                 @livewire('twitter')
             </div>
             <div class="col s12 m6 z-depth-3">
+                @if (session()->has('message'))
+                    <div class="container row yellow grey-text darken-3">
+                        <p class="center-align white-text">
+                            {{session()->get('message')}}
+                        </p>
+                    </div>
+                @endif
                 @livewire('blogs')
             </div>
             <div class="col"></div>
