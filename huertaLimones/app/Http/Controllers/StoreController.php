@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Stores;
+use App\Models\Car_prods;
 use Illuminate\Http\Request;
 use App\Http\Livewire\Store as Story;
 use App\Models\Prod_tipos;
@@ -12,6 +13,9 @@ use Illuminate\Support\Facades\DB;
 
 class StoreController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth', ['except'=>['show']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -72,7 +76,12 @@ class StoreController extends Controller
      */
     public function edit($id)
     {
-        //
+        $productos = Producto::where('id', $id)->first();
+        $tipo = Prod_tipos::where('id', $productos['TIPO_ID'])->first();
+        $car_prods = Car_prods::where('PROD_ID', $productos['id']);
+        return view('livewire.store-purchase')
+            ->with('producto', $productos)
+            ->with('tipo', $tipo);
     }
 
     /**
