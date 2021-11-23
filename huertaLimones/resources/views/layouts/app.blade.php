@@ -39,4 +39,5 @@
 
         @livewireScripts
     </body>
+    @extends('footer')
 </html>

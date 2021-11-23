@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Stores;
 use Illuminate\Http\Request;
 use App\Http\Livewire\Store as Story;
+use App\Models\Prod_tipos;
+use App\Models\Producto;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class StoreController extends Controller
@@ -54,7 +57,11 @@ class StoreController extends Controller
      */
     public function show($id)
     {
-        //
+        $product = Producto::where('id', $id)->first();
+        $prod_tipo = Prod_tipos::where('id', $product['TIPO_ID'])->first();
+        return view('livewire.store-buy')
+            ->with('producto', $product)
+            ->with('prod_tipo', $prod_tipo);
     }
 
     /**

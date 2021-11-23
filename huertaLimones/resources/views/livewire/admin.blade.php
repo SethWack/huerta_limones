@@ -16,6 +16,9 @@
     <div class="row center">
         <a class="btn-flat white-text" href="/compras"><i class="material-icons left">store</i>Compras</a>
     </div>
+    <div class="row center">
+        <a class="btn-flat white-text" href="/reportes"><i class="material-icons left">flag</i>Reportes</a>
+    </div>
 </div>
 <div class="col m1 hide-on-small-and-down hide-on-large-only hide-on-extra-large-only blue-grey">
     <p class="center center-align white-text flow-text"><i class="material-icons">admin_panel_settings</i></p>
@@ -33,6 +36,9 @@
     </div>
     <div class="row center">
         <a class="btn-flat white-text" href="/compras"><i class="material-icons center-align">store</i></a>
+    </div>
+    <div class="row center">
+        <a class="btn-flat white-text" href="/reportes"><i class="material-icons center-align">flag</i></a>
     </div>
 </div>
 @livewire('sidebar')

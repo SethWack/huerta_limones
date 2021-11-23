@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CarritoController;
 use App\Http\Controllers\ComprasController;
 use App\Http\Controllers\EntradaController;
 use App\Http\Controllers\ProductController;
@@ -37,3 +38,4 @@ Route::resource('/productos', ProductController::class);
 Route::resource('/entradas', EntradaController::class);
 Route::resource('/salidas', SalidaController::class);
 Route::resource('/compras', ComprasController::class);
+Route::resource('/carrito', CarritoController::class);

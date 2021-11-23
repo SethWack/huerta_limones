@@ -17,19 +17,19 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         DB::table('prod_tipos')->insert([
-            'TIPO_NAME' => 'Mexicano'
+            'TIPO_NAME' => 'Limon'
         ]);
         DB::table('prod_tipos')->insert([
-            'TIPO_NAME' => 'Persio'
+            'TIPO_NAME' => 'Jabon'
         ]);
         DB::table('prod_tipos')->insert([
-            'TIPO_NAME' => 'Rangpur'
+            'TIPO_NAME' => 'Hoja de Te'
         ]);
         DB::table('prod_tipos')->insert([
-            'TIPO_NAME' => 'Calamasi'
+            'TIPO_NAME' => 'Arbolito'
         ]);
         DB::table('prod_tipos')->insert([
-            'TIPO_NAME' => 'Kaffir'
+            'TIPO_NAME' => 'Semilla'
         ]);
         DB::table('tipo_pagos')->insert([
             'CARD_DESC' => 'MasterCard'
@@ -89,6 +89,13 @@ class DatabaseSeeder extends Seeder
             'BLOG_TEXT' => 'This is a longer text: Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias deserunt beatae, facere iste tempore voluptates enim cupiditate commodi, perferendis inventore consequatur minima! Atque, ex aperiam placeat magnam cupiditate vero ipsa?',
             'BLOG_IMG' => '1.jpg',
             'USER_ID' => '1'
+        ]);
+        DB::table('carritos')->insert([
+            'id' => 1,
+        ]);
+        DB::table('user_cars')->insert([
+            'USER_ID' => 1,
+            'CAR_ID' => 1,
         ]);
     }
 }

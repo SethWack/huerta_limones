@@ -6,7 +6,7 @@
                     <h1 class="white-text center-align">Comprar Limones</h1>
                     <div class="col s12 deep-orange carousel carousel-slider z-depth-3 center">
                         <div class="carousel-fixed-item center">
-                            <a class="btn-flat light-green black-text waves-effect waves-green" href="/store">Comprar</a>
+                            <button class="btn-flat light-green black-text waves-effect waves-green" href="/store">Comprar</button>
                         </div>
                         <div class="carousel-item green">
                             <img class="responsive-img" src="https://cdn.pixabay.com/photo/2021/05/05/18/06/lemon-6231697_960_720.jpg" alt="">

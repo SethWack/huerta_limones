@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Prod_sals;
+use App\Models\Car_prods;
+use App\Models\Carritos;
+use App\Models\Prod_tipos;
 use App\Models\Producto;
-use App\Models\Salidas;
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\User_cars;
 
-class SalidaController extends Controller
+class CarritoController extends Controller
 {
     public function __construct(){
         $this->middleware('auth', ['except'=>['show']]);
@@ -19,13 +22,7 @@ class SalidaController extends Controller
      */
     public function index()
     {
-        $salidas = Salidas::select()->get();
-        $prod_sals = Prod_sals::select()->get();
-        $products = Producto::select()->get();
-        return view('livewire.salidas')
-            ->with('salidas', $salidas)
-            ->with('prod_sals', $prod_sals)
-            ->with('productos', $products);
+        //
     }
 
     /**
@@ -35,9 +32,7 @@ class SalidaController extends Controller
      */
     public function create()
     {
-        $productos = Producto::select()->get();
-        return view('livewire.salida-make')
-            ->with('productos', $productos);
+        return view('livewire.carritos');
     }
 
     /**
@@ -48,25 +43,22 @@ class SalidaController extends Controller
      */
     public function store(Request $request)
     {
+        $prod = Producto::where('id', $request['PROD_ID'])->first();
+        $user = User::where('id',$request['USER_ID'])->first();
+        $user_car = User_cars::where('USER_ID', $user['id'])->first();
+        $carrito = Carritos::where('id', $user_car['CAR_ID'])->first();
         $request->validate([
-            'SAL_DATE' => 'required',
-            'PROD_ID' => 'required'
+            'PROD_ID' => 'required',
+            'PROD_AMMOUNT' => 'required'
         ]);
-        Salidas::create([
-            'SAL_DATE' => $request->input('SAL_DATE')
+        Car_prods::create([
+            'CAR_ID' => $carrito['id'],
+            'PROD_ID' => $prod['id'],
+            'PROD_AMMOUNT' => $request['PROD_AMMOUNT']
         ]);
+        return redirect('/store')->with('message', 'Agregado al Carrito!');
+    }
 
-        $this->createProdSal($request['PROD_ID']);
-        return redirect('/salidas')->with('message', 'Salida Creado!');
-    }
-    public function createProdSal($prod){
-        $getID = Salidas::latest()->first();
-        Prod_sals::create([
-            'SAL_ID' => $getID['id'],
-            'PROD_ID' => $prod
-        ]);
-        return null;
-    }
     /**
      * Display the specified resource.
      *
@@ -75,7 +67,17 @@ class SalidaController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::where('id',$id)->first();
+        $user_car = User_cars::where('USER_ID', $user['id'])->first();
+        $carrito = Carritos::where('id', $user_car['CAR_ID'])->first();
+        $car_prods = Car_prods::where('CAR_ID', $carrito['id'])->get();
+        $products = Producto::select()->get();
+        $prod = Prod_tipos::select()->get();
+        return view('livewire.carritos')
+            ->with('user', $user)
+            ->with('car_prods', $car_prods)
+            ->with('productos', $products)
+            ->with('tipos', $prod);
     }
 
     /**
@@ -86,7 +88,9 @@ class SalidaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $productos = Producto::where('id', $id)->first();
+        $car_prods = Car_prods::where('PROD_ID', $productos['id']);
+        return view('livewire.store-purchase');
     }
 
     /**
@@ -109,10 +113,6 @@ class SalidaController extends Controller
      */
     public function destroy($id)
     {
-        $prod_sal = Prod_sals::where('SAL_ID', $id);
-        $prod_sal->delete();
-        $sal = Salidas::where('id', $id);
-        $sal->delete();
-        return redirect('/salidas')->with('message', 'Salida Borrada!');
+        //
     }
 }

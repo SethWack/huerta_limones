@@ -1,8 +1,13 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="container">
-            <h2 class="deep-orange-text center-align">
-                {{ __('store') }}
+            @if (session()->has('message'))
+                <div class="row light-green white-text valign-wrapper">
+                    <p class="flow-text center">{{session('message')}}</p>
+                </div>
+            @endif
+            <h2 class="deep-orange-text center-align header">
+                Tienda
             </h2>
         </div>
     </x-slot>
@@ -10,45 +15,32 @@
     <x-slot name="slot">
         <div class="row container">
             <div class="col s12">
-                @php
-                    $row_count = 0
-                @endphp
                 @foreach ($productos as $product)
-                @if($row_count == 0)
-                    <div class="row">
-                @endif
-                    <div class="col s4">
-                            <div class="card horizontal small light-green lighten-5">
+                    <div class="row hoverable orange lighten-4">
+                        <div class="col s2"></div>
+                        <div class="col s8">
+                            <div class="card horizontal white">
                                 <div class="card-image">
-                                    <img src="{{asset('images/' . $product->IMG_PATH)}}" alt="">
+                                    <img class="responsive-img" src="{{asset('images/'.$product->IMG_PATH)}}" alt="">
                                 </div>
                                 <div class="card-stacked">
                                     <div class="card-content">
-                                        <span class="card-title">
-                                            @foreach($types as $type)
-                                                @if ($type->id == $product->TIPO_ID)
-                                                    {{$type->TIPO_NAME}}
-                                                @endif
-                                            @endforeach
-                                        </span>
-                                        <p>precio:{{$product->PROD_PRICE}}</p>
-                                        <p>cantidad disponible: {{$product->PROD_AMMOUNT}}</p>
+                                        @foreach ($types as $type)
+                                            @if ($type->id == $product->TIPO_ID)
+                                                <span class="card-title deep-orange-text">{{$type->TIPO_NAME}}</span>
+                                            @endif
+                                        @endforeach
+                                        <p>Precio: ${{$product->PROD_PRICE}}.00</p>
+                                        <p>Cantidad: {{$product->PROD_AMMOUNT}}</p>
                                     </div>
-                                    <div class="card-action light-green">
-                                        <a href="" class="btn btn-flat white deep-orange-text">buy</a>
+                                    <div class="card-action">
+                                        <a class="btn-flat light-green white-text" href="/store/{{$product->id}}">Comprar</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                @if($row_count == 3)
-                </div>
-                @endif
-                @php
-                    $row_count += 1;
-                    if($row_count == 3){
-                        $row_count = 0;
-                    }
-                @endphp
+                        <div class="col s2"></div>
+                    </div>
                 @endforeach
             </div>
         </div>

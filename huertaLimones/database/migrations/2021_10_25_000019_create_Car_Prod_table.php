@@ -22,7 +22,9 @@ class CreateCarProdTable extends Migration
     {
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
+            $table->id();
             $table->timestamps();
+            $table->integer('PROD_AMMOUNT');
         });
         Schema::table($this->tableName, function(Blueprint $table){
             $table->unsignedBigInteger('CAR_ID');

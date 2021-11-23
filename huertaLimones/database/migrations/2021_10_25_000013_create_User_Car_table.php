@@ -10,7 +10,7 @@ class CreateUserCarTable extends Migration
      * Schema table name to migrate
      * @var string
      */
-    public $tableName = 'user_Cars';
+    public $tableName = 'user_cars';
 
     /**
      * Run the migrations.

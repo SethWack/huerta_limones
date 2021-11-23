@@ -33,6 +33,12 @@
                     </div>
                 @endif
             @else
+                    <li>
+                        <a href="/carrito/{{Auth::user()->id}}" class="btn-flat white deep-orange-text">
+                            <i class="material-icons left">local_grocery_store</i>
+                            Carrito
+                        </a>
+                    </li>
                 @if (Auth::user()->admin == 1)
                     <li>
                         <a href="/admin" class="btn-flat white blue-text">Admin</a>
