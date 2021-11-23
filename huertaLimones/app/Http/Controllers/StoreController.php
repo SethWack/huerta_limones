@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Livewire\Store as Story;
 use App\Models\Prod_tipos;
 use App\Models\Producto;
+use App\Models\Tipo_pagos;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -76,12 +77,14 @@ class StoreController extends Controller
      */
     public function edit($id)
     {
-        $productos = Producto::where('id', $id)->first();
+        $car_prod = Car_prods::where('id', $id)->first();
+        $productos = Producto::where('id', $car_prod['PROD_ID'])->first();
         $tipo = Prod_tipos::where('id', $productos['TIPO_ID'])->first();
-        $car_prods = Car_prods::where('PROD_ID', $productos['id']);
+        $tipo_pago = Tipo_pagos::select()->get();
         return view('livewire.store-purchase')
             ->with('producto', $productos)
-            ->with('tipo', $tipo);
+            ->with('tipo', $tipo)
+            ->with('tipo_pagos', $tipo_pago);
     }
 
     /**
