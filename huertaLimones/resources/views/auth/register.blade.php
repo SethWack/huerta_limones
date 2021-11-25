@@ -14,6 +14,7 @@
                 <div class="col s12 m6">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
+                        <input type="hidden" name="admin" id="admin" :value='0'>
                         <h4 class="center">Registration</h4>
                         <div class="input-field">
                             <x-jet-label for="name" value="{{ __('Name') }}" />
