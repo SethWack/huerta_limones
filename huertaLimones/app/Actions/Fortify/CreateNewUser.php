@@ -2,7 +2,9 @@
 
 namespace App\Actions\Fortify;
 
+use App\Models\Carritos;
 use App\Models\User;
+use App\Models\User_cars;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
@@ -26,7 +28,9 @@ class CreateNewUser implements CreatesNewUsers
             'password' => $this->passwordRules(),
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['required', 'accepted'] : '',
         ])->validate();
-
+        $car = Carritos::orderByDesc('id')->first();
+        $carId = $car['id'] + 1;
+        Carritos::create(['id' => $carId]);
         return User::create([
             'name' => $input['name'],
             'email' => $input['email'],
