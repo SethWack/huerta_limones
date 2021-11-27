@@ -36,8 +36,8 @@ class ComprasController extends Controller
             ->with('users', $user)
             ->with('productos', $product)
             ->with('entregas', $entregas)
-            ->with('pag_ent', $pagent)
-            ->with('pag_prod', $pagprod)
+            ->with('pag_ents', $pagent)
+            ->with('pag_prods', $pagprod)
             ->with('pagos', $pagos)
             ->with('tipo_pagos', $tipopago)
             ->with('prod_tipos', $prodtipo);

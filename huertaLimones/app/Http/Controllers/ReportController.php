@@ -2,7 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blogs;
+use App\Models\Entradas;
+use App\Models\Entregas;
+use App\Models\Pag_ents;
+use App\Models\Pag_prods;
+use App\Models\Pagos;
+use App\Models\Prod_ents;
+use App\Models\Prod_sals;
+use App\Models\Prod_tipos;
+use App\Models\Producto;
+use App\Models\Reportes;
+use App\Models\Salidas;
+use App\Models\Tipo_pagos;
+use App\Models\User;
 use Illuminate\Http\Request;
+use PhpParser\Node\Stmt\TryCatch;
+use Barryvdh\DomPDF\PDF;
 
 class ReportController extends Controller
 {
@@ -13,7 +29,9 @@ class ReportController extends Controller
      */
     public function index()
     {
-        //
+        $report = Reportes::select()->get();
+        return view('livewire.reportes')
+            ->with('reports', $report);
     }
 
     /**
@@ -23,7 +41,7 @@ class ReportController extends Controller
      */
     public function create()
     {
-        //
+        return view('livewire.reporte-export');
     }
 
     /**
@@ -34,7 +52,51 @@ class ReportController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $chk1 = false;
+        $chk2 = false;
+        $chk3 = false;
+        $chk4 = false;
+        $chk5 = false;
+        $chk6 = false;
+        try {
+            if($request['usuarios'] == 1)
+            $chk1 = true;
+        } catch (\Throwable $th) {
+        }
+        try {
+            if($request['productos'] == 2)
+            $chk2 = true;
+        } catch (\Throwable $th) {
+        }
+        try {
+            if($request['pagos'] == 3)
+            $chk3 = true;
+        } catch (\Throwable $th) {
+        }
+        try {
+            if($request['entradas'] == 4)
+            $chk4 = true;
+        } catch (\Throwable $th) {
+        }
+        try {
+            if($request['salidas'] == 5)
+            $chk5 = true;
+        } catch (\Throwable $th) {
+        }
+        try {
+            if($request['blogs'] == 6)
+            $chk6 = true;
+        } catch (\Throwable $th) {
+        }
+        Reportes::create(['REPORT_PDF' => "null"]);
+        $rep = Reportes::latest()->first();
+        return redirect('/reportes/'.$rep['id'])
+            ->with('chk1', $chk1)
+            ->with('chk2', $chk2)
+            ->with('chk3', $chk3)
+            ->with('chk4', $chk4)
+            ->with('chk5', $chk5)
+            ->with('chk6', $chk6);
     }
 
     /**
@@ -45,7 +107,34 @@ class ReportController extends Controller
      */
     public function show($id)
     {
-        //
+        $users = User::select()->get();
+        $tipo_pagos = Tipo_pagos::select()->get();
+        $products = Producto::select()->get();
+        $prod_tipos = Prod_tipos::select()->get();
+        $prod_sal = Prod_sals::select()->get();
+        $prod_ent = Prod_ents::select()->get();
+        $entradas = Entradas::select()->get();
+        $salidas = Salidas::select()->get();
+        $entregas = Entregas::select()->get();
+        $pagos = Pagos::select()->get();
+        $pag_ent = Pag_ents::select()->get();
+        $pag_prods = Pag_prods::select()->get();
+        $blogs = Blogs::select()->get();
+        return view('livewire.report-final')
+            ->with('users', $users)
+            ->with('tipo_pagos', $tipo_pagos)
+            ->with('productos', $products)
+            ->with('prod_tipos', $prod_tipos)
+            ->with('prod_sals', $prod_sal)
+            ->with('prod_ents', $prod_ent)
+            ->with('entradas', $entradas)
+            ->with('salidas', $salidas)
+            ->with('entregas', $entregas)
+            ->with('pagos', $pagos)
+            ->with('pag_ents', $pag_ent)
+            ->with('pag_prods', $pag_prods)
+            ->with('blogs', $blogs)
+            ->with('id', $id);
     }
 
     /**
