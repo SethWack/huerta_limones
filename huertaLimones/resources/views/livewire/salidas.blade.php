@@ -7,7 +7,7 @@
         <div class="row">
             @livewire('admin')
             <div class="col s12 m11 l10 grey lighten-3">
-                <h2 class="center-align">Entradas</h2>
+                <h2 class="center-align">Salidas</h2>
                 @if (session()->has('message'))
                     <div class="row green">
                         <p class="flow-text">{{session('message')}}</p>

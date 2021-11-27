@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Entradas;
+use App\Models\Prod_ents;
 use App\Models\Prod_tipos;
 use App\Models\Producto;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -59,6 +62,14 @@ class ProductController extends Controller
             'TIPO_ID' => $request->input('TIPO_ID'),
             'IMG_PATH' => $request->input('IMG_PATH')
 
+        ]);
+        $date = Carbon::now();
+        Entradas::create(['ENT_DATE' => $date]);
+        $prod = Producto::latest()->first();
+        $ent = Entradas::latest()->first();
+        Prod_ents::create([
+            'PROD_ID' => $prod['id'],
+            'ENT_ID' => $ent['id']
         ]);
         return redirect('/productos')->with('message', 'Producto Creado!');
     }
@@ -124,6 +135,10 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $prod = Producto::where('id', $id)->first();
+        $prodent = Prod_ents::where('PROD_ID', $id)->first();
+        $prodid = $prodent['ENT_ID'];
+        Prod_ents::where('PROD_ID', $id)->delete();
+        Entradas::where('id', $prodid)->delete();
         $prod->delete();
         return redirect('/productos')->with('message', 'Producto Deleted!');
     }

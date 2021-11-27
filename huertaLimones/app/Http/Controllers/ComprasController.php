@@ -2,6 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Entregas;
+use App\Models\Pag_ents;
+use App\Models\Pag_prods;
+use App\Models\Pagos;
+use App\Models\Prod_tipos;
+use App\Models\Producto;
+use App\Models\Tipo_pagos;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ComprasController extends Controller
@@ -16,7 +24,23 @@ class ComprasController extends Controller
      */
     public function index()
     {
-        //
+        $user = User::select()->get();
+        $product = Producto::select()->get();
+        $entregas = Entregas::select()->get();
+        $pagent = Pag_ents::select()->get();
+        $pagprod = Pag_prods::select()->get();
+        $pagos = Pagos::select()->get();
+        $tipopago = Tipo_pagos::select()->get();
+        $prodtipo = Prod_tipos::select()->get();
+        return view('livewire.compras')
+            ->with('users', $user)
+            ->with('productos', $product)
+            ->with('entregas', $entregas)
+            ->with('pag_ent', $pagent)
+            ->with('pag_prod', $pagprod)
+            ->with('pagos', $pagos)
+            ->with('tipo_pagos', $tipopago)
+            ->with('prod_tipos', $prodtipo);
     }
 
     /**
