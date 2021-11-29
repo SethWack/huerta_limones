@@ -18,7 +18,7 @@ use App\Models\Tipo_pagos;
 use App\Models\User;
 use Illuminate\Http\Request;
 use PhpParser\Node\Stmt\TryCatch;
-use Barryvdh\DomPDF\PDF;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class ReportController extends Controller
 {
@@ -90,6 +90,7 @@ class ReportController extends Controller
         }
         Reportes::create(['REPORT_PDF' => "null"]);
         $rep = Reportes::latest()->first();
+
         return redirect('/reportes/'.$rep['id'])
             ->with('chk1', $chk1)
             ->with('chk2', $chk2)
@@ -109,29 +110,29 @@ class ReportController extends Controller
     {
         $users = User::select()->get();
         $tipo_pagos = Tipo_pagos::select()->get();
-        $products = Producto::select()->get();
+        $productos = Producto::select()->get();
         $prod_tipos = Prod_tipos::select()->get();
-        $prod_sal = Prod_sals::select()->get();
-        $prod_ent = Prod_ents::select()->get();
+        $prod_sals = Prod_sals::select()->get();
+        $prod_ents = Prod_ents::select()->get();
         $entradas = Entradas::select()->get();
         $salidas = Salidas::select()->get();
         $entregas = Entregas::select()->get();
         $pagos = Pagos::select()->get();
-        $pag_ent = Pag_ents::select()->get();
+        $pag_ents = Pag_ents::select()->get();
         $pag_prods = Pag_prods::select()->get();
         $blogs = Blogs::select()->get();
         return view('livewire.report-final')
             ->with('users', $users)
             ->with('tipo_pagos', $tipo_pagos)
-            ->with('productos', $products)
+            ->with('productos', $productos)
             ->with('prod_tipos', $prod_tipos)
-            ->with('prod_sals', $prod_sal)
-            ->with('prod_ents', $prod_ent)
+            ->with('prod_sals', $prod_sals)
+            ->with('prod_ents', $prod_ents)
             ->with('entradas', $entradas)
             ->with('salidas', $salidas)
             ->with('entregas', $entregas)
             ->with('pagos', $pagos)
-            ->with('pag_ents', $pag_ent)
+            ->with('pag_ents', $pag_ents)
             ->with('pag_prods', $pag_prods)
             ->with('blogs', $blogs)
             ->with('id', $id);
