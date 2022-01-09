@@ -21,7 +21,7 @@
                                 <th class="flow-text">Id</th>
                                 <th class="flow-text">Salida</th>
                                 <th class="flow-text">Producto ID</th>
-                                <th class="flow-text">Delete</th>
+                                <th class="flow-text">Borrar</th>
                             </tr>
                         </thead>
                         <tbody>

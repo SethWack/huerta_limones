@@ -24,7 +24,7 @@
                     <div class="input-field">
                         <i class="material-icons prefix">lock</i>
                         <input id="USER_PASSWORD" type="password" name="password" value="{{$user->password}}"/>
-                        <label for="USER_PASSWORD">Password de Usuario</label>
+                        <label for="USER_PASSWORD">Contraseña de Usuario</label>
                     </div>
                     <div class="input-field col s2">
                         <select name="admin">

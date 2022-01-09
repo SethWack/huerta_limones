@@ -2,7 +2,7 @@
     <x-slot name="header">
         <div class="container">
             <h2 class="deep-orange-text center-align">
-                {{ __('store') }}
+                {{ __('Tienda') }}
             </h2>
         </div>
     </x-slot>

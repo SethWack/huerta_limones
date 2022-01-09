@@ -24,21 +24,21 @@
                     <div class="row">
                         <div class="input-field">
                             <i class="material-icons prefix">message</i>
-                            <input type="text" name="BLOG_TITLE" id="BLOG_TITLE" placeholder="Title" class="right">
+                            <input type="text" name="BLOG_TITLE" id="BLOG_TITLE" placeholder="Título" class="right">
                             <label for="BLOG_TITLE">Title</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field">
                             <i class="material-icons prefix">edit</i>
-                            <textarea class="materialize-textarea" id="BLOG_TEXT" name='BLOG_TEXT' placeholder="Description"></textarea>
+                            <textarea class="materialize-textarea" id="BLOG_TEXT" name='BLOG_TEXT' placeholder="Descripción"></textarea>
                             <label for="BLOG_TEXT">Description</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field">
                             <i class="material-icons prefix">notes</i>
-                            <input type="text" id="BLOG_DESC" name='BLOG_DESC' placeholder="give a quick description" class="right">
+                            <input type="text" id="BLOG_DESC" name='BLOG_DESC' placeholder="dar una descripción rápida" class="right">
                             <label for="BLOG_DESC">description</label>
                         </div>
                     </div>
@@ -57,7 +57,7 @@
                     </div>
                     <div class="row">
                         <button class="btn green white-text" type="submit">
-                            <i class="left material-icons">send</i> Submit
+                            <i class="left material-icons">send</i> Enviar
                         </button>
                     </div>
                 </form>

@@ -19,11 +19,11 @@
                         <thead>
                             <tr>
                                 <th class="flow-text">id</th>
-                                <th class="flow-text">name</th>
-                                <th class="flow-text">email</th>
+                                <th class="flow-text">nombre</th>
+                                <th class="flow-text">e-mail</th>
                                 <th class="flow-text">admin</th>
-                                <th class="flow-text">edit</th>
-                                <th class="flow-text">delete</th>
+                                <th class="flow-text">editar</th>
+                                <th class="flow-text">borrar</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -50,7 +50,7 @@
                                 </tr>
                                 <div class="modal modal-fixed-footer" id="delete{{$user->id}}">
                                     <div class="modal-content red">
-                                        <h4 class="white-text center">Are you sure you want to delete? {{$user->name}}</h4>
+                                        <h4 class="white-text center">¿Está seguro de que desea eliminar? {{$user->name}}</h4>
                                         <form wire:submit.prevent="userDelete({{$user->id}})">
                                             <button wire:onclick="userDelete({{$user->id}})" class="btn white red-text modal-close" type="submit"><i class="material-icons left">delete</i><i class="material-icons left">warning</i>Yes</button>
                                         </form>

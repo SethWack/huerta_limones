@@ -16,21 +16,21 @@
                     <div class="row">
                         <div class="input-field">
                             <i class="material-icons prefix">message</i>
-                            <input type="text" name="BLOG_TITLE" id="BLOG_TITLE" placeholder="Title..." value="{{$blog->BLOG_TITLE}}" class="right validate">
+                            <input type="text" name="BLOG_TITLE" id="BLOG_TITLE" placeholder="Título" value="{{$blog->BLOG_TITLE}}" class="right validate">
                             <label for="BLOG_TITLE">Title</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field">
                             <i class="material-icons prefix">edit</i>
-                            <textarea class="materialize-textarea" name="BLOG_TEXT" id="BLOG_TEXT" placeholder="Description">{{$blog->BLOG_TEXT}}</textarea>
+                            <textarea class="materialize-textarea" name="BLOG_TEXT" id="BLOG_TEXT" placeholder="Descripción">{{$blog->BLOG_TEXT}}</textarea>
                             <label for="BLOG_TEXT">Description</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field">
                             <i class="material-icons prefix">notes</i>
-                            <input type="text" name="BLOG_DESC" id="BLOG_DESC" placeholder="give a quick description" value="{{$blog->BLOG_DESC}}" class="right validate">
+                            <input type="text" name="BLOG_DESC" id="BLOG_DESC" placeholder="dar una descripción rápida" value="{{$blog->BLOG_DESC}}" class="right validate">
                             <label for="BLOG_DESC">description</label>
                         </div>
                     </div>

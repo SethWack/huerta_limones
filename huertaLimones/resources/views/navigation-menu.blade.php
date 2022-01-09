@@ -9,12 +9,12 @@
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li>
                 <a href="/" class="btn btn-flat waves-effect waves-green white light-green-text">
-                    Home
+                    Casa
                 </a>
             </li>
             <li>
                 <a href="/store" class="btn btn-flat white light-green-text waves-effect waves-green">
-                    Store
+                    Tienda
                 </a>
             </li>
             @guest
@@ -22,11 +22,11 @@
                         @auth
                         @else
                         <li>
-                            <a href="{{ route('login') }}" class="btn btn-flat white green-text">Log in</a>
+                            <a href="{{ route('login') }}" class="btn btn-flat white green-text">Iniciar sesión</a>
                         </li>
                             @if (Route::has('register'))
                                 <li>
-                                <a href="{{ route('register') }}" class="btn btn-flat white green-text">Register</a>
+                                <a href="{{ route('register') }}" class="btn btn-flat white green-text">Registrar</a>
                                 </li>
                             @endif
                         @endauth
@@ -82,12 +82,12 @@
 <ul class="sidenav" id="side-button">
     <li>
         <a href="/" :active="request()->routeIs('dashboard')" class="btn btn-flat waves-effect waves-green white light-green-text">
-                Home
+                Casa
         </a>
     </li>
     <li>
         <a href="/store" class="btn btn-flat white light-green-text waves-effect waves-green center-align">
-            Store
+            Tienda
         </a>
     </li>
     @guest
@@ -95,11 +95,11 @@
                 @auth
                 @else
                 <li>
-                    <a href="{{ route('login') }}" class="btn btn-flat white green-text center-align">Log in</a>
+                    <a href="{{ route('login') }}" class="btn btn-flat white green-text center-align">Iniciar sesión</a>
                 </li>
                     @if (Route::has('register'))
                         <li>
-                        <a href="{{ route('register') }}" class="btn btn-flat white green-text center-align">Register</a>
+                        <a href="{{ route('register') }}" class="btn btn-flat white green-text center-align">Registrar</a>
                         </li>
                     @endif
                 @endauth
@@ -144,7 +144,7 @@
         <form method="POST" action="{{ route('logout') }}">
             @csrf
             <a class="btn-flat deep-orange white-text" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();" >
-                {{ __('Log Out') }}
+                {{ __('Cerrar sesión') }}
             </a>
         </form>
     </li>

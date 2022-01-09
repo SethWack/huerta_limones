@@ -14,7 +14,7 @@
                                 <thead>
                                     <tr>
                                         <th class="flow-text">id</th>
-                                        <th class="flow-text">name</th>
+                                        <th class="flow-text">nombre</th>
                                         <th class="flow-text">email</th>
                                         <th class="flow-text">admin</th>
                                     </tr>

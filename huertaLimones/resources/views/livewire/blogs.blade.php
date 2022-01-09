@@ -3,7 +3,7 @@
     @else
         @if (Auth::user()->admin == 1)
             <a href="/blog/create" class="btn-flat deep-orange white-text">
-                Create Blog
+                Crear Blog
             </a>
         @endif
     @endguest
@@ -51,7 +51,7 @@
                             <form action="/blog/{{$blog->BLOG_SLUG}}" method="POST">
                             @csrf
                             @method('delete')
-                                <button class="btn-flat red white-text right">Delete</button>
+                                <button class="btn-flat red white-text right">Borrar</button>
                             </form>
                         @endif
                     @endguest
