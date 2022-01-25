@@ -22,6 +22,12 @@ use Barryvdh\DomPDF\Facade as PDF;
 
 class ReportController extends Controller
 {
+    public $chk1 = false;
+    public $chk2 = false;
+    public $chk3 = false;
+    public $chk4 = false;
+    public $chk5 = false;
+    public $chk6 = false;
     /**
      * Display a listing of the resource.
      *
@@ -52,52 +58,46 @@ class ReportController extends Controller
      */
     public function store(Request $request)
     {
-        $chk1 = false;
-        $chk2 = false;
-        $chk3 = false;
-        $chk4 = false;
-        $chk5 = false;
-        $chk6 = false;
         try {
             if($request['usuarios'] == 1)
-            $chk1 = true;
+            $this->chk1 = true;
         } catch (\Throwable $th) {
         }
         try {
             if($request['productos'] == 2)
-            $chk2 = true;
+            $this->chk2 = true;
         } catch (\Throwable $th) {
         }
         try {
             if($request['pagos'] == 3)
-            $chk3 = true;
+            $this->chk3 = true;
         } catch (\Throwable $th) {
         }
         try {
             if($request['entradas'] == 4)
-            $chk4 = true;
+            $this->chk4 = true;
         } catch (\Throwable $th) {
         }
         try {
             if($request['salidas'] == 5)
-            $chk5 = true;
+            $this->chk5 = true;
         } catch (\Throwable $th) {
         }
         try {
             if($request['blogs'] == 6)
-            $chk6 = true;
+            $this->chk6 = true;
         } catch (\Throwable $th) {
         }
         Reportes::create(['REPORT_PDF' => "null"]);
         $rep = Reportes::latest()->first();
 
         return redirect('/reportes/'.$rep['id'])
-            ->with('chk1', $chk1)
-            ->with('chk2', $chk2)
-            ->with('chk3', $chk3)
-            ->with('chk4', $chk4)
-            ->with('chk5', $chk5)
-            ->with('chk6', $chk6);
+            ->with('chk1', $this->chk1)
+            ->with('chk2', $this->chk2)
+            ->with('chk3', $this->chk3)
+            ->with('chk4', $this->chk4)
+            ->with('chk5', $this->chk5)
+            ->with('chk6', $this->chk6);
     }
 
     /**

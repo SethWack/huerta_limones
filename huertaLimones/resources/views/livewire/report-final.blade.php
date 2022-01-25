@@ -8,29 +8,27 @@
             @livewire('admin')
             <div class="col s12 m11 l10 grey lighten-3">
                 <div class="row">
-                    @if (session()->has('chk1'))
-                        @if (session('chk1') == true)
-                            <table class="striped centered red darken-3 white-text">
-                                <thead>
+                    @if (session('chk1') == true)
+                        <table class="striped centered red darken-3 white-text">
+                            <thead>
+                                <tr>
+                                    <th class="flow-text">id</th>
+                                    <th class="flow-text">nombre</th>
+                                    <th class="flow-text">email</th>
+                                    <th class="flow-text">admin</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($users as $user)
                                     <tr>
-                                        <th class="flow-text">id</th>
-                                        <th class="flow-text">nombre</th>
-                                        <th class="flow-text">email</th>
-                                        <th class="flow-text">admin</th>
+                                        <td class="flow-text">{{$user->id}}</td>
+                                        <td class="flow-text">{{$user->name}}</td>
+                                        <td class="flow-text">{{$user->email}}</td>
+                                        <td class="flow-text">{{$user->admin}}</td>
                                     </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($users as $user)
-                                        <tr>
-                                            <td class="flow-text">{{$user->id}}</td>
-                                            <td class="flow-text">{{$user->name}}</td>
-                                            <td class="flow-text">{{$user->email}}</td>
-                                            <td class="flow-text">{{$user->admin}}</td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        @endif
+                                @endforeach
+                            </tbody>
+                        </table>
                     @endif
                 </div>
                 <div class="row">
