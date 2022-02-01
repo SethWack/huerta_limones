@@ -28,9 +28,7 @@ class CreateNewUser implements CreatesNewUsers
             'password' => $this->passwordRules(),
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['required', 'accepted'] : '',
         ])->validate();
-        $car = Carritos::orderByDesc('id')->first();
-        $carId = $car['id'] + 1;
-        Carritos::create(['id' => $carId]);
+
         return User::create([
             'name' => $input['name'],
             'email' => $input['email'],

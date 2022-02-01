@@ -74,13 +74,19 @@ class DatabaseSeeder extends Seeder
             'name' => 'ADMIN1',
             'email' => 'admin@gmail.com',
             'password' => Hash::make('qwerty_12345678'),
-            'admin' => True
+            'admin' => True,
+        ]);
+        DB::table('carritos')->insert([
+            'USER_ID' => 1,
         ]);
         DB::table('users')->insert([
             'name' => 'userTest',
             'email' => 'test@gmail.com',
             'password' => Hash::make('12345678'),
-            'admin' => False
+            'admin' => False,
+        ]);
+        DB::table('carritos')->insert([
+            'USER_ID' => 2,
         ]);
         DB::table('blogs')->insert([
             'BLOG_SLUG' => 'Test1',
@@ -90,12 +96,6 @@ class DatabaseSeeder extends Seeder
             'BLOG_IMG' => '1.jpg',
             'USER_ID' => '1'
         ]);
-        DB::table('carritos')->insert([
-            'id' => 1,
-        ]);
-        DB::table('user_cars')->insert([
-            'USER_ID' => 1,
-            'CAR_ID' => 1,
-        ]);
+        
     }
 }

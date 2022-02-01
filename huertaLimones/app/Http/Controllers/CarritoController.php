@@ -45,8 +45,7 @@ class CarritoController extends Controller
     {
         $prod = Producto::where('id', $request['PROD_ID'])->first();
         $user = User::where('id',$request['USER_ID'])->first();
-        $user_car = User_cars::where('USER_ID', $user['id'])->first();
-        $carrito = Carritos::where('id', $user_car['CAR_ID'])->first();
+        $carrito = Carritos::where('USER_ID', $user['id'])->first();
         $request->validate([
             'PROD_ID' => 'required',
             'PROD_AMMOUNT' => 'required'
@@ -68,8 +67,7 @@ class CarritoController extends Controller
     public function show($id)
     {
         $user = User::where('id',$id)->first();
-        $user_car = User_cars::where('USER_ID', $user['id'])->first();
-        $carrito = Carritos::where('id', $user_car['CAR_ID'])->first();
+        $carrito = Carritos::where('USER_ID', $user['id'])->first();
         $car_prods = Car_prods::where('CAR_ID', $carrito['id'])->get();
         $products = Producto::select()->get();
         $prod = Prod_tipos::select()->get();

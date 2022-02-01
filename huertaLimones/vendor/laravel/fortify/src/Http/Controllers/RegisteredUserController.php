@@ -55,13 +55,10 @@ class RegisteredUserController extends Controller
                           CreatesNewUsers $creator): RegisterResponse
     {
         event(new Registered($user = $creator->create($request->all())));
-        $car = Carritos::orderByDesc('id')->first();
-        $carId = $car['id'];
         $users = User::latest()->first();
-        $user_id = $users['id'];
-        User_cars::create([
-            'USER_ID' => $user_id,
-            'CAR_ID' => $carId,
+        $userId = $users['id'];
+        Carritos::create([
+            'USER_ID' => $userId,
         ]);
         $this->guard->login($user);
 

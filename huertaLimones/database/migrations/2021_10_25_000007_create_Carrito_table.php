@@ -26,6 +26,14 @@ class CreateCarritoTable extends Migration
             $table->id();
 
         });
+        Schema::table($this->tableName, function (Blueprint $table){
+            $table->unsignedBigInteger('USER_ID');
+
+            $table->foreign('USER_ID')
+                ->references('id')->on('users')
+                ->onDelete('no action')
+                ->onUpdate('no action');
+        });
     }
 
     /**
