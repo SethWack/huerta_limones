@@ -6,9 +6,6 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Contracts\Auth\StatefulGuard;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use App\Models\User;
-use App\Models\User_cars;
-use App\Models\Carritos;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 use Laravel\Fortify\Contracts\RegisterResponse;
 use Laravel\Fortify\Contracts\RegisterViewResponse;
@@ -55,11 +52,7 @@ class RegisteredUserController extends Controller
                           CreatesNewUsers $creator): RegisterResponse
     {
         event(new Registered($user = $creator->create($request->all())));
-        $users = User::latest()->first();
-        $userId = $users['id'];
-        Carritos::create([
-            'USER_ID' => $userId,
-        ]);
+
         $this->guard->login($user);
 
         return app(RegisterResponse::class);

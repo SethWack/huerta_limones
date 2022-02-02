@@ -5,12 +5,13 @@ namespace Illuminate\Support;
 use ArrayIterator;
 use Closure;
 use DateTimeInterface;
+use Illuminate\Contracts\Support\CanBeEscapedWhenCastToString;
 use Illuminate\Support\Traits\EnumeratesValues;
 use Illuminate\Support\Traits\Macroable;
 use IteratorAggregate;
 use stdClass;
 
-class LazyCollection implements Enumerable
+class LazyCollection implements CanBeEscapedWhenCastToString, Enumerable
 {
     use EnumeratesValues, Macroable;
 
@@ -202,6 +203,19 @@ class LazyCollection implements Enumerable
         }
 
         return $this->contains($this->operatorForWhere(...func_get_args()));
+    }
+
+    /**
+     * Determine if an item is not contained in the enumerable.
+     *
+     * @param  mixed  $key
+     * @param  mixed  $operator
+     * @param  mixed  $value
+     * @return bool
+     */
+    public function doesntContain($key, $operator = null, $value = null)
+    {
+        return ! $this->contains(...func_get_args());
     }
 
     /**
@@ -1275,6 +1289,17 @@ class LazyCollection implements Enumerable
     }
 
     /**
+     * Sort the collection keys using a callback.
+     *
+     * @param  callable  $callback
+     * @return static
+     */
+    public function sortKeysUsing(callable $callback)
+    {
+        return $this->passthru('sortKeysUsing', func_get_args());
+    }
+
+    /**
      * Take the first or last {$limit} items.
      *
      * @param  int  $limit
@@ -1369,6 +1394,16 @@ class LazyCollection implements Enumerable
                 yield $key => $value;
             }
         });
+    }
+
+    /**
+     * Convert a flatten "dot" notation array into an expanded array.
+     *
+     * @return static
+     */
+    public function undot()
+    {
+        return $this->passthru('undot', []);
     }
 
     /**
