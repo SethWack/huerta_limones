@@ -8,6 +8,8 @@
             @livewire('admin')
             <div class="col s12 m11 l10 grey lighten-3">
                 <div class="row">
+                    Valor de chk1 en session es: 
+                    {{ session('chk1') }}
                     @if (session('chk1') == true)
                         <table class="striped centered red darken-3 white-text">
                             <thead>
@@ -226,12 +228,8 @@
                     @endif
                 </div>
                 <div class="row">
-                    <form action="/reportes/{{$id}}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        @method('PUT')
-                        <input type="hidden" name="id" id="id" value="{{$id}}">
-                        <button class="btn light-green white-text">make PDF</button>
-                    </form>
+                     <button class="btn light-green white-text" href="{! route('reportesPDF') !}">make PDF</button>
+                     <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('reportesPDF') !!}">PDF</a>
                 </div>
             </div>
         </div>

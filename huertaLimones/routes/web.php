@@ -41,3 +41,4 @@ Route::resource('/salidas', SalidaController::class);
 Route::resource('/compras', ComprasController::class);
 Route::resource('/carrito', CarritoController::class);
 Route::resource('/reportes', ReportController::class);
+Route::get('/reportes/pdf', [ReportController::class, 'createPDF'])->name('reportesPDF');
